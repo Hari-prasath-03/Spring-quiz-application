@@ -1,7 +1,6 @@
 package tech.hariprasath.quizApplication.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Service;
 import tech.hariprasath.quizApplication.customexception.QuizNotFoundException;
 import tech.hariprasath.quizApplication.dto.ExamEvaluationResponse;
