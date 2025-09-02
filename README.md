@@ -108,10 +108,12 @@ To ensure better **scalability** and **modularity** the monolithic architecture 
 
 ### 🔀 Transition Steps
 
-#### ✅ Step 1: Separate User Service
+#### ✅ Step 1: Separate Auth Service & User Service
 
 * Manages user registration, profile data, and user-specific queries.
-* Exposes endpoints like `/register`, `/profile`.
+* Handles login, registration, role management, and **JWT token generation**.
+* Acts as the authority for issuing and validating credentials.
+
 
 #### ✅ Step 2: Separate Quiz Service
 
@@ -123,28 +125,23 @@ To ensure better **scalability** and **modularity** the monolithic architecture 
 * Manages test-taking logic and result evaluation.
 * Interacts with the Quiz Service to fetch questions and validate answers.
 
-#### ✅ Step 4: Separate Auth Service
-
-* Handles login, registration, role management, and **JWT token generation**.
-* Acts as the authority for issuing and validating credentials.
-
-#### ✅ Step 5: Eureka Discovery Service
+#### ✅ Step 4: Eureka Discovery Service
 
 * Services register themselves to **Eureka Server**.
 * Enables dynamic service lookup (no hardcoded URLs).
 
-#### ✅ Step 6: Inter-Service Communication
+#### ✅ Step 5: Inter-Service Communication
 
 * Use **Spring OpenFeign** or **RestTemplate** for HTTP-based service calls.
 * Gateway forwards user requests to appropriate services.
 
-#### ✅ Step 7: Implement API Gateway
+#### ✅ Step 6: Implement API Gateway
 
 * All requests go through a central **Spring Cloud Gateway**.
 * Validates JWT via security filter before routing.
 * Injects user info into headers for downstream services.
 
-#### ✅ Step 8: Secure Internal Communication
+#### ✅ Step 7: Secure Internal Communication
 
 * Internal endpoints protected via roles and internal access policies.
 * External clients only talk to the **Gateway**, not directly to services.
