@@ -108,24 +108,24 @@ To ensure better **scalability** and **modularity** the monolithic architecture 
 
 ### 🔀 Transition Steps
 
-#### ✅ Step 1: Separate Auth Service & User Service
+#### ✅ Step 1: Separate Auth Service & User Service -> 🔗[repo link](https://github.com/Hari-prasath-03/Quiz-auth-microservice)
 
 * Manages user registration, profile data, and user-specific queries.
 * Handles login, registration, role management, and **JWT token generation**.
 * Acts as the authority for issuing and validating credentials.
 
 
-#### ✅ Step 2: Separate Quiz Service
+#### ✅ Step 2: Separate Quiz Service -> 🔗[repo link](https://github.com/Hari-prasath-03/Quiz-quiz-microservice)
 
 * Handles quiz creation, updates, deletions, and retrievals.
 * Isolated responsibility for quiz schema and question management.
 
-#### ✅ Step 3: Separate Exam Service
+#### ✅ Step 3: Separate Exam Service -> 🔗[repo link](https://github.com/Hari-prasath-03/Quiz-exam-microservice)
 
 * Manages test-taking logic and result evaluation.
 * Interacts with the Quiz Service to fetch questions and validate answers.
 
-#### ✅ Step 4: Eureka Discovery Service
+#### ✅ Step 4: Eureka Discovery Service -> 🔗[repo link](https://github.com/Hari-prasath-03/Quiz-service-registry-microservice)
 
 * Services register themselves to **Eureka Server**.
 * Enables dynamic service lookup (no hardcoded URLs).
@@ -135,7 +135,7 @@ To ensure better **scalability** and **modularity** the monolithic architecture 
 * Use **Spring OpenFeign** or **RestTemplate** for HTTP-based service calls.
 * Gateway forwards user requests to appropriate services.
 
-#### ✅ Step 6: Implement API Gateway
+#### ✅ Step 6: Implement API Gateway -> 🔗[repo link](https://github.com/Hari-prasath-03/Quiz-api-gateway-microservice)
 
 * All requests go through a central **Spring Cloud Gateway**.
 * Validates JWT via security filter before routing.
